@@ -7,6 +7,7 @@ from .projects import Projects
 from .ssh import Keys
 from .compat import basestring
 from .allrepos import Repos
+from .buildstatus import BuildStatus
 
 class Stash(object):
     _url = "/"
@@ -18,6 +19,7 @@ class Stash(object):
     projects = Nested(Projects)
     ssh = Nested(Keys)
     repos = Nested(Repos)
+    build_status = Nested(BuildStatus, relative_path="/commits")
 
     def groups(self, filter=None):
         """
