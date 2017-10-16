@@ -8,7 +8,7 @@ from .errors import response_or_error
 
 class BuildStatus(ResourceBase):
     """
-    Ability to publish build status details.
+    Ability to get and publish build status details.
     """
     successful = 'SUCCESSFUL'
     failed = 'FAILED'
@@ -17,6 +17,15 @@ class BuildStatus(ResourceBase):
     def __init__(self, url, client, parent):
         super(BuildStatus, self).__init__(
             url, client, parent, api_path='build-status/1.0'
+        )
+
+    @response_or_error
+    def get(self, item):
+        """
+        Retrieve the status.
+        """
+        return self._client.get(
+            self.url("/%s" % (item,))
         )
 
     @response_or_error
