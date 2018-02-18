@@ -96,6 +96,13 @@ class PullRequest(ResourceBase):
         return self._client.get(self.url("/merge"))
 
     @response_or_error
+    def rebase(self, version=-1):
+        """
+        Rebase the specified pull request.
+        """
+        return self._client.post(self.url("/rebase"), data=dict(version=version))
+
+    @response_or_error
     def merge(self, version=-1):
         """
         Merge the specified pull request.
