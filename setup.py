@@ -5,11 +5,11 @@ def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 setup(name='stashy',
-      version="0.6",
+      version="0.6.1",
       description='Python API client for the Atlassian Stash REST API',
       long_description=read('README.rst'),
-      url='http://github.com/RisingOak/stashy',
-      download_url = 'https://github.com/RisingOak/stashy/tarball/0.1',
+      url='http://github.com/tgates42/stashy',
+      download_url = 'https://github.com/tgates42/stashy/archive/0.6.1.zip',
       author='Cosmin Stejerean',
       author_email='cosmin@offbytwo.com',
       license='Apache License 2.0',
