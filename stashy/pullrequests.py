@@ -119,7 +119,10 @@ class PullRequest(ResourceBase):
         """
         Rebase the specified pull request.
         """
-        return self._client.post(self.url("/rebase"), data=dict(version=version))
+        # Switch to unreleased non-public API
+        url = self.url("/rebase")
+        url = url.replace(self._client.core_api_path, 'git/latest')
+        return self._client.post(url, data=dict(version=version))
 
     @response_or_error
     def merge(self, version=-1):
